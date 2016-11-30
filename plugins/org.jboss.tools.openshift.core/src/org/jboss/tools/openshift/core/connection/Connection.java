@@ -128,10 +128,14 @@ public class Connection extends ObservablePojo implements IRefreshable, IOpenShi
 
 	@Override
 	public void setUsername(String userName) {
-		IAuthorizationContext authContext = client.getAuthorizationContext();
-		String old = authContext.getUserName();
-		authContext.setUserName(userName);
-		firePropertyChange(PROPERTY_USERNAME, old, userName);
+		try {
+			IAuthorizationContext authContext = client.getAuthorizationContext();
+			String old = authContext.getUserName();
+			authContext.setUserName(userName);
+			firePropertyChange(PROPERTY_USERNAME, old, userName);
+		//sonar should blame that exception isn't logged or rethrown
+		} catch(Exception e) {
+		}
 	}
 
 	@Override
