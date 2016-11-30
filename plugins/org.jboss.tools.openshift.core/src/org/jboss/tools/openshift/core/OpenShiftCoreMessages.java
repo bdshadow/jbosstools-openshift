@@ -17,6 +17,7 @@ public class OpenShiftCoreMessages extends NLS {
     public static String DebugOnOpenshift;
     public static String ProfileOnOpenshift;
     public static String RunOnOpenshift;
+    private static String oneMoreVar;
     static {
         // initialize resource bundle
         NLS.initializeMessages(BUNDLE_NAME, OpenShiftCoreMessages.class);
