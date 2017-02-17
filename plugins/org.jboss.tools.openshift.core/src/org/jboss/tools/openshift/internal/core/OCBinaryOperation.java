@@ -32,6 +32,7 @@ public abstract class OCBinaryOperation {
 		OpenShiftContext.get().put(IBinaryCapability.OPENSHIFT_BINARY_LOCATION, location);
 		try {
 			runOCBinary(status);
+		} catch (Exception e) {
 		} finally {
 			if (!StringUtils.isEmpty(oldLocation)) {
 				OpenShiftContext.get().put(IBinaryCapability.OPENSHIFT_BINARY_LOCATION, oldLocation);
