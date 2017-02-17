@@ -29,7 +29,10 @@ public abstract class OCBinaryOperation {
 	public void run(final MultiStatus status) {
 		String oldLocation = OpenShiftContext.get().get(IBinaryCapability.OPENSHIFT_BINARY_LOCATION);
 		String location = OCBinary.getInstance().getLocation();
-		OpenShiftContext.get().put(IBinaryCapability.OPENSHIFT_BINARY_LOCATION, location);
+		try {
+			OpenShiftContext.get().put(IBinaryCapability.OPENSHIFT_BINARY_LOCATION, location);
+		} catch(Exception e) {
+		}
 		try {
 			runOCBinary(status);
 		} finally {
