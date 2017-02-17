@@ -42,7 +42,10 @@ public class ConnectionPersistency extends AbstractConnectionPersistency<Connect
 
 	@Override
 	protected void persist(Map<String, Connection> connections) {
-		preferences.saveConnections(connections.keySet().toArray(new String[] {}));
+		try {
+			preferences.saveConnections(connections.keySet().toArray(new String[] {}));
+		} catch (Exception e) {
+		}
 		for (Entry<String, Connection> entry : connections.entrySet()) {
 			preferences.saveExtProperties(entry.getKey(), entry.getValue().getExtendedProperties());
 		}
