@@ -255,6 +255,8 @@ public class Connection extends ObservablePojo implements IRefreshable, IOpenShi
 			} else {
 				throw e;
 			}
+			//sonarqube must blame on empty catch block
+		} catch (Exception e) {
 		}
 		return getToken() != null;
 	}
